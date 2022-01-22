@@ -1,5 +1,5 @@
-# a-small-bash-script
-an experiment, just fetches some system info :P
+# picofetch
+a under 1KB program that just fetches some system info :P
 
 You can modify, edit, change the code however you want.
 
