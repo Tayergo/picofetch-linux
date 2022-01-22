@@ -1,22 +1,22 @@
 #!/bin/bash
 
 clear
-
+echo "------OS VER------"
 grep '^VERSION' /etc/os-release
 egrep '^(VERSION|NAME)=' /etc/os-release
-echo "------------------"
+echo "------KERNEL------"
 uname -r
-echo "------------------"
+echo "------FREE SPACE------"
 df -h /dev/sdb3
-echo "------------------"
+echo "-----CPU MODEL------"
 grep -m 1 'model name' /proc/cpuinfo
-echo "------------------"
+echo "------GPU MODEL-----"
 glxinfo | grep "Device"
-echo "------------------"
+echo "------RAM INFO-----"
 free -h
-echo "------------------"
+echo "-------SHELL----"
 echo $SHELL
-echo "------------------"
+echo "----------PACKAGES----"
 # The next command needs to have the .txt cleared before running for accuracy.
 pacman -Qq --color never > packnum.txt
 wc -l packnum.txt
