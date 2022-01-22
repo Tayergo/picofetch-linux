@@ -1,0 +1,7 @@
+1. Download the .sh file
+
+2. Open The Terminal
+
+3. Go to the directory the .sh file is (should be ~/Downloads)
+
+4. run: ./(name-here).sh
