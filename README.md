@@ -9,3 +9,4 @@ You can do anything with it, anywhere.
 The only requirement is that if you fork the code and make it into your own script, or something, credit me as the original creator.
 
 See [Installation.md](Installation.md)
+(See CC-BY, that's basically equivalent to what I'm saying)
