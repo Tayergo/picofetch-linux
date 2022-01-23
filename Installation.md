@@ -6,7 +6,7 @@ You wouldn't have to majorly tweak it for it to work though.
 
 ## All Dependancies ##
 Terminal Image Viewer (TIV)
-*Used to display the logo.*
+*Used to display a logo.*
 
 ## Install Picofetch ##
 * run `git clone https://github.com/XeonBionic/picofetch.githttps://github.com/XeonBionic/picofetch.git`
