@@ -1,4 +1,4 @@
-# picofetch
+# ᵖᶦᶜᵒfetch 
 a under 1KB program that just fetches some system info :P
 (25-30kb if you account for the image, and TIV)
 
