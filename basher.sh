@@ -7,6 +7,8 @@ SPACE=$(df -h /dev/sdb3)
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
 RAM=$(free -h)
+
+
 Color_Off='\033[0m'       # Text Reset
 Red='\033[0;31m'          # Red
 Green='\033[0;32m'        # Green
@@ -21,40 +23,40 @@ BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
 clear
-echo -e "$BWhite------LOGO--------$Color_Off"
+echo -e "$BWhite------------LOGO--------------$Color_Off"
 echo "$LOGO"
 
-echo -e "$BRed------OS VER------$Red"
+echo -e "$BRed------------OS VER------------$Red"
 echo "$OS1"
 echo "$OS2"
 echo
 
-echo -e "$BYellow------KERNEL------$Yellow"
+echo -e "$BYellow------------KERNEL------------$Yellow"
 echo "$KERNEL"
 echo
 
-echo -e "$BGreen------FREE SPACE------$Green"
+echo -e "$BGreen----------FREE SPACE----------$Green"
 echo "$SPACE"
 echo
 
-echo -e "$BBlue-----CPU MODEL------$Blue"
+echo -e "$BBlue----------CPU MODEL-----------$Blue"
 echo "$CPU"
 echo
 
-echo -e "$BPurple------GPU MODEL-----$Purple"
+echo -e "$BPurple----------GPU MODEL-----------$Purple"
 echo "$GPU"
 echo
 
-echo -e "$BRed------RAM INFO-----$Red"
+echo -e "$BRed-----------RAM INFO-----------$Red"
 echo "$RAM"
 echo
 
-echo -e "$BYellow-------SHELL----$Yellow"
+echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "$SHELL"
 echo
 
-echo -e "$BGreen----------PACKAGES----$Green"
+echo -e "$BGreen-----------PACKAGES-----------$Green"
 # The next command needs to have the .txt cleared before running for accuracy.
 pacman -Qq --color never > packnum.txt
 wc -l packnum.txt
-echo "------------------"
+echo -e "$BWhite------------------------------"
