@@ -2,7 +2,7 @@
 
 clear
 echo "------LOGO--------"
-tiv -h 25 -w 25 ~/Downloads/snak.png
+tiv -h 25 -w 25 ~/picofetch/snak.png
 echo "------OS VER------"
 grep '^VERSION' /etc/os-release
 egrep '^(VERSION|NAME)=' /etc/os-release
