@@ -12,7 +12,7 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
-LOGO=$(snak.txt)
+# LOGO=$(snak.txt)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
@@ -22,8 +22,8 @@ GPU=$(glxinfo | grep "Device")
 RAM=$(free -h)
 
 clear
-echo -e "$BWhite------------LOGO--------------$Color_Off"
-echo -e "$LOGO"
+# echo -e "$BWhite------------LOGO--------------$Color_Off"
+# echo -e "$LOGO"
 
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS1"
