@@ -1,14 +1,4 @@
 #!/bin/bash
-LOGO=$(tiv -h 25 -w 25 ~/picofetch/snak.png)
-OS1=$(grep '^VERSION' /etc/os-release)
-OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
-KERNEL=$(uname -r)
-SPACE=$(df -h /dev/sdb3)
-CPU=$(grep -m 1 'model name' /proc/cpuinfo)
-GPU=$(glxinfo | grep "Device")
-RAM=$(free -h)
-
-
 Color_Off='\033[0m'       # Text Reset
 Red='\033[0;31m'          # Red
 Green='\033[0;32m'        # Green
@@ -22,9 +12,18 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
+LOGO=$(snak.txt)
+OS1=$(grep '^VERSION' /etc/os-release)
+OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
+KERNEL=$(uname -r)
+SPACE=$(df -h /dev/sdb3)
+CPU=$(grep -m 1 'model name' /proc/cpuinfo)
+GPU=$(glxinfo | grep "Device")
+RAM=$(free -h)
+
 clear
 echo -e "$BWhite------------LOGO--------------$Color_Off"
-echo "$LOGO"
+echo -e "$LOGO"
 
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS1"
