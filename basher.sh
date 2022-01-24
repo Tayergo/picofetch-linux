@@ -13,10 +13,11 @@ BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
 # LOGO=$(snak.txt)
-OS1=$(grep '^VERSION' /etc/os-release)
-OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
+OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
 KERNEL=$(uname -r)
-SPACE=$(df -h /dev/sdb3)
+FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
+TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
+SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
 RAM=$(free -h)
@@ -26,8 +27,7 @@ clear
 # echo -e "$LOGO"
 
 echo -e "$BRed------------OS VER------------$Red"
-echo "$OS1"
-echo "$OS2"
+echo "$OS"
 echo
 
 echo -e "$BYellow------------KERNEL------------$Yellow"
@@ -39,11 +39,11 @@ echo "$SPACE"
 echo
 
 echo -e "$BBlue----------CPU MODEL-----------$Blue"
-echo "$CPU"
+echo "${CPU:13}"
 echo
 
 echo -e "$BPurple----------GPU MODEL-----------$Purple"
-echo "$GPU"
+echo "${GPU:12}"
 echo
 
 echo -e "$BRed-----------RAM INFO-----------$Red"
@@ -56,6 +56,30 @@ echo
 
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 # The next command needs to have the .txt cleared before running for accuracy.
-pacman -Qq --color never > packnum.txt
-wc -l packnum.txt
+case $OS in
+    arch)
+        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
+        echo "${ARCH_PKG} (pacman)"
+    ;;
+    debian)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    ubuntu)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    Arch)
+        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
+        echo "${ARCH_PKG} (pacman)"
+    ;;
+    Debian)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    Ubuntu)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+esac
 echo -e "$BWhite------------------------------"
