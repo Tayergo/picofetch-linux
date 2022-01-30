@@ -57,5 +57,6 @@ echo
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 # The next command needs to have the .txt cleared before running for accuracy.
 pacman -Qq --color never > packnum.txt
+dpkg-query -l | less > packnum.txt
 wc -l packnum.txt
 echo -e "$BWhite------------------------------"
