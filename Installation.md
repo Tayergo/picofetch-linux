@@ -4,8 +4,8 @@ This is a script for arch systems. The package count will not work without modif
 You wouldn't have to majorly tweak it for it to work though.
 
 
-## All Dependancies ##
-Terminal Image Viewer (TIV)
+## optional programs ##
+viu 
 *Used to display a logo.*
 
 ## Install Picofetch ##
