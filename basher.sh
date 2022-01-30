@@ -19,7 +19,7 @@ KERNEL=$(uname -r)
 SPACE=$(df -h /dev/sdb3)
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
-RAM=$(free -h)
+RAM=$(egrep 'MemTotal|MemFree|MemAvailable' /proc/meminfo)
 
 clear
 # echo -e "$BWhite------------LOGO--------------$Color_Off"
