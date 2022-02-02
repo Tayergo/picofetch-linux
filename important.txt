@@ -1,1 +1,0 @@
-readme and install instructions will always be found on this repo. to shave down space when you clone the repo, we put both on the gitignore. 
