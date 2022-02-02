@@ -89,7 +89,7 @@ case $OS in
         echo "${DEB_PKG} (dpkg)"
     ;;
 esac
-=======
+#=======
 pacman -Qq --color never > packnum.txt
 dpkg-query -l | less > packnum.txt
 wc -l packnum.txt
