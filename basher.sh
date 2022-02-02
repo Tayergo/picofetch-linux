@@ -12,11 +12,18 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
+
+# LOGO=$(snak.txt)
+OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
+=======
 # LOGO=$(viu -w 25 ./your_image_here)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
+
 KERNEL=$(uname -r)
-SPACE=$(df -h /dev/sdb3)
+FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
+TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
+SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
 RAM=$(egrep 'MemTotal|MemFree|MemAvailable' /proc/meminfo)
@@ -26,8 +33,7 @@ clear
 # echo -e "$LOGO"
 
 echo -e "$BRed------------OS VER------------$Red"
-echo "$OS1"
-echo "$OS2"
+echo "$OS"
 echo
 
 echo -e "$BYellow------------KERNEL------------$Yellow"
@@ -39,11 +45,11 @@ echo "$SPACE"
 echo
 
 echo -e "$BBlue----------CPU MODEL-----------$Blue"
-echo "$CPU"
+echo "${CPU:13}"
 echo
 
 echo -e "$BPurple----------GPU MODEL-----------$Purple"
-echo "$GPU"
+echo "${GPU:12}"
 echo
 
 echo -e "$BRed-----------RAM INFO-----------$Red"
@@ -56,6 +62,34 @@ echo
 
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 # The next command needs to have the .txt cleared before running for accuracy.
+
+case $OS in
+    arch)
+        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
+        echo "${ARCH_PKG} (pacman)"
+    ;;
+    debian)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    ubuntu)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    Arch)
+        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
+        echo "${ARCH_PKG} (pacman)"
+    ;;
+    Debian)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+    Ubuntu)
+        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
+        echo "${DEB_PKG} (dpkg)"
+    ;;
+esac
+=======
 pacman -Qq --color never > packnum.txt
 dpkg-query -l | less > packnum.txt
 wc -l packnum.txt
