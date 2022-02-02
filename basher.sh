@@ -12,15 +12,21 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
+
 # LOGO=$(snak.txt)
 OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
+=======
+# LOGO=$(viu -w 25 ./your_image_here)
+OS1=$(grep '^VERSION' /etc/os-release)
+OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
+
 KERNEL=$(uname -r)
 FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
 TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
 SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
-RAM=$(free -h)
+RAM=$(egrep 'MemTotal|MemFree|MemAvailable' /proc/meminfo)
 
 clear
 # echo -e "$BWhite------------LOGO--------------$Color_Off"
@@ -56,6 +62,7 @@ echo
 
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 # The next command needs to have the .txt cleared before running for accuracy.
+
 case $OS in
     arch)
         ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
@@ -82,4 +89,8 @@ case $OS in
         echo "${DEB_PKG} (dpkg)"
     ;;
 esac
+=======
+pacman -Qq --color never > packnum.txt
+dpkg-query -l | less > packnum.txt
+wc -l packnum.txt
 echo -e "$BWhite------------------------------"
