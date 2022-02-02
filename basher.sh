@@ -12,7 +12,7 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 
-# LOGO=$(snak.txt)
+# LOGO=$(viu -w 25 ./your_image_here)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
