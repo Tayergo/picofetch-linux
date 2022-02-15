@@ -13,6 +13,8 @@ viu
 ## Needed programs ##
 git
 *to clone the repo.*
+bash
+*this is a bash script...*
 
 ## Install Picofetch ##
 * run `git clone https://github.com/XeonBionic/picofetch.githttps://github.com/XeonBionic/picofetch.git`
