@@ -55,6 +55,8 @@ echo -e "$BGreen-----------PACKAGES-----------$Green"
 #=======
 sudo pacman -Qq --color never > arch-pacman
 dpkg-query -l | less > debian-dpkg
+ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg
 wc -l arch-pacman
 wc -l debian-dpkg
+wc -l gentoo-pkg
 echo -e "$BWhite------------------------------"
