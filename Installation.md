@@ -13,6 +13,7 @@ viu
 ## Needed programs ##
 git
 *to clone the repo.*
+
 bash
 *this is a bash script...*
 
