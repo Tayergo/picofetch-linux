@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/zsh
 Color_Off='\033[0m'       # Text Reset
 Red='\033[0;31m'          # Red
 Green='\033[0;32m'        # Green
