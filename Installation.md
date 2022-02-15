@@ -1,9 +1,6 @@
 # Important info:
-This is a script for arch systems. The package count will not work without modification on non-arch distributions.
 
-You wouldn't have to majorly tweak it for it to work though.
-
-Also, ignore releases unless you wanna see bug-fixes and stuff. Its really just to track development/milestones.
+ignore releases unless you wanna see bug-fixes and stuff. Its really just to track development/milestones.
 
 
 ## optional programs ##
