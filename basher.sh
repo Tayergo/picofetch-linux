@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 Color_Off='\033[0m'       # Text Reset
 Red='\033[0;31m'          # Red
 Green='\033[0;32m'        # Green
