@@ -10,5 +10,9 @@ The only requirement is that if you fork the code and make it into your own scri
 
 (See CC-BY, that's basically equivalent to what I'm saying)
 
+# Installation info
 See [Installation.md](Installation.md)
+
+# Other
+see snak.txt for credits, compatibility info, etc
 
