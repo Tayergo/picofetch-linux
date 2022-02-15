@@ -66,36 +66,9 @@ echo "$SHELL"
 echo
 
 echo -e "$BGreen-----------PACKAGES-----------$Green"
-# The next command needs to have the .txt cleared before running for accuracy.
-
-case $OS in
-    arch)
-        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
-        echo "${ARCH_PKG} (pacman)"
-    ;;
-    debian)
-        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
-        echo "${DEB_PKG} (dpkg)"
-    ;;
-    ubuntu)
-        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
-        echo "${DEB_PKG} (dpkg)"
-    ;;
-    Arch)
-        ARCH_PKG=$(pacman -Qq --color never > packnum.txt && wc -l packnum.txt)
-        echo "${ARCH_PKG} (pacman)"
-    ;;
-    Debian)
-        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
-        echo "${DEB_PKG} (dpkg)"
-    ;;
-    Ubuntu)
-        DEB_PKG=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
-        echo "${DEB_PKG} (dpkg)"
-    ;;
-esac
 #=======
-pacman -Qq --color never > packnum.txt
-dpkg-query -l | less > packnum.txt
-wc -l packnum.txt
+sudo pacman -Qq --color never > arch-pacman
+dpkg-query -l | less > debian-dpkg
+wc -l arch-pacman
+wc -l debian-dpkg
 echo -e "$BWhite------------------------------"
