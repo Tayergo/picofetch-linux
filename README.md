@@ -1,5 +1,5 @@
 # ᵖᶦᶜᵒfetch 
-a under 2KB program that just fetches some system info :P
+a under 2KB bash program that just fetches some system info :P
 (4kb if you account for the install and readme, and ASCII art)
 
 You can modify, edit, change the code however you want.
