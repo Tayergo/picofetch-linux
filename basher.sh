@@ -20,7 +20,7 @@ TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
 SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
-RAM=$(egrep 'MemTotal|MemFree|MemAvailable' /proc/meminfo)
+RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
 clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
