@@ -10,6 +10,10 @@ Also, ignore releases unless you wanna see bug-fixes and stuff. Its really just 
 viu 
 *Used to display a logo.*
 
+## Needed programs ##
+git
+*to clone the repo.*
+
 ## Install Picofetch ##
 * run `git clone https://github.com/XeonBionic/picofetch.githttps://github.com/XeonBionic/picofetch.git`
 * run `cd picofetch"`
