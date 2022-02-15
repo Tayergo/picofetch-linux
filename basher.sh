@@ -17,7 +17,6 @@ OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
-DEWM=$($DESKTOP_SESSION)
 FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
 TOTAL_SPACE=$(df -h / | awk '{print $2}' | grep "^[0-9]")
 SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
@@ -34,7 +33,7 @@ echo -e "$BYellow------------KERNEL------------$Yellow"
 echo "$KERNEL"
 echo
 echo -e "$BWhite-------------DE/WM-------------$White"
-echo "$DEWM"
+echo "$DESKTOP_SESSION"
 echo
 echo -e "$BGreen----------FREE SPACE----------$Green"
 echo "$SPACE"
