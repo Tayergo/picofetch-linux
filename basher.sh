@@ -11,9 +11,7 @@ BYellow='\033[1;33m'      # Yellow
 BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
-# LOGO=$(snak.txt)
 OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
-# LOGO=$(viu -w 25 ./your_image_here)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
@@ -24,34 +22,23 @@ CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
 RAM=$(egrep 'MemTotal|MemFree|MemAvailable' /proc/meminfo)
 clear
-# echo -e "$BWhite------------LOGO--------------$Color_Off"
-# echo -e "$LOGO"
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
-echo
 echo -e "$BYellow------------KERNEL------------$Yellow"
 echo "$KERNEL"
-echo
 echo -e "$BWhite-------------DE/WM-------------$White"
 echo "$DESKTOP_SESSION"
-echo
 echo -e "$BGreen----------FREE SPACE----------$Green"
 echo "$SPACE"
-echo
 echo -e "$BBlue----------CPU MODEL-----------$Blue"
 echo "${CPU:13}"
-echo
 echo -e "$BPurple----------GPU MODEL-----------$Purple"
 echo "${GPU:12}"
-echo
 echo -e "$BRed-----------RAM INFO-----------$Red"
 echo "$RAM"
-echo
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "$SHELL"
-echo
 echo -e "$BGreen-----------PACKAGES-----------$Green"
-#=======
 sudo pacman -Qq --color never > arch-pacman
 dpkg-query -l | less > debian-dpkg
 ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg
