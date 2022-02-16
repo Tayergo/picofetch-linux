@@ -12,8 +12,6 @@ BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
 OS=$(grep -Em2 'NAME=' < /etc/os-release)
-OS1=$(grep '^VERSION' /etc/os-release)
-OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
 FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
 TOTAL_SPACE=$(df -h /home | awk '{print $2}' | grep "^[0-9]")
