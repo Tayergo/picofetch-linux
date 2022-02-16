@@ -24,8 +24,8 @@ bash
 ## Run Picofetch ##
 First, set the script to be executable.
 
-`chmod +x basher.sh`
+`chmod +x fet.sh`
 
 Then just run the .sh script, and it should display system info.
 
-`./basher.sh`
+`./fet.sh`
