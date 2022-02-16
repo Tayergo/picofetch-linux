@@ -41,5 +41,6 @@ echo "$RAM"
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
+echo "$PACK"
 
 
