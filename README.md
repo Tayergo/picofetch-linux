@@ -13,6 +13,10 @@ The only requirement is that if you fork the code and make it into your own scri
 # Installation info
 See [Installation.md](Installation.md)
 
+# Dependancies:
+bash
+git
+
 # Other
 see snak.txt for credits, compatibility info, etc
 
