@@ -19,7 +19,7 @@ SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(sudo lshw -c video | grep -Em2 'product:')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
-PACK=$(sudo pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l arch-pacman.txt && wc -l debian-dpkg.txt && wc -l gentoo-pkg.txt)
+PACK=$(sudo pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && find . -name '*.txt' | xargs grep 'word')
 clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
