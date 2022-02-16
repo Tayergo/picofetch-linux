@@ -19,7 +19,7 @@ FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
 TOTAL_SPACE=$(df -h /home | awk '{print $2}' | grep "^[0-9]")
 SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
-GPU=$(glxinfo | grep "Device")
+GPU=$(sudo lshw -c video | grep -Em2 'product:')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
 PACK=$(sudo pacman -Qq --color never > arch-pacman && dpkg-query -l | less > debian-dpkg && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg && wc -l arch-pacman && wc -l debian-dpkg && wc -l gentoo-pkg)
 clear
