@@ -21,7 +21,7 @@ PACK=$(if [ -x $(command -v "pacman") ]; then
   PACK="$(pacman -Qq | wc -l)"
 elif [ -x $(command -v "apt"); then
   PACK="$(dpkg-query -l | wc -l)"
-elif { -x $(command -v "emerge"); then
+elif [ -x $(command -v "emerge"); then
   PACK="$(ls -d /var/db/pkg/*/*| cut -f5- -d/ | wc -l)"
 fi)
 echo -e "$BRed------------OS VER------------$Red"
