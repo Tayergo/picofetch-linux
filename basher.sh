@@ -17,7 +17,13 @@ SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print 
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(lspci | grep -Em2 'VGA')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
-PACK=$(exec 3>&2 && exec 2> /dev/null && pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
+PACK=$(if [ -x $(command -v "pacman") ]; then
+  PACK="$(pacman -Qq | wc -l)"
+elif [ -x $(command -v "apt"); then
+  PACK="$(dpkg-query -l | wc -l)"
+elif { -x $(command -v "emerge"); then
+  PACK="$(ls -d /var/db/pkg/*/*| cut -f5- -d/ | wc -l)"
+fi)
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
 echo -e "$BYellow------------KERNEL------------$Yellow"
@@ -35,4 +41,5 @@ echo "$RAM"
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
-echo "$PACK"
+
+
