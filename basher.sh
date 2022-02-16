@@ -13,13 +13,11 @@ BPurple='\033[1;35m' # Purple
 BWhite='\033[1;37m' # White
 OS=$(grep -Em2 'NAME=' < /etc/os-release)
 KERNEL=$(uname -r)
-FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
-TOTAL_SPACE=$(df -h /home | awk '{print $2}' | grep "^[0-9]")
-SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
+SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print $2}' | grep "^[0-9]")
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
-GPU=$(sudo lshw -c video | grep -Em2 'product:')
+GPU=$(lspci | grep -Em2 'VGA')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
-PACK=$(sudo pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
+PACK=$(pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
 clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
@@ -28,7 +26,7 @@ echo "$KERNEL"
 echo -e "$BWhite-------------DE/WM-------------$White"
 echo "$DESKTOP_SESSION"
 echo -e "$BGreen----------FREE SPACE----------$Green"
-echo "$SPACE"
+echo "echo $SPACE"
 echo -e "$BBlue----------CPU MODEL-----------$Blue"
 echo "${CPU:13}"
 echo -e "$BPurple----------GPU MODEL-----------$Purple"
@@ -39,4 +37,4 @@ echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "$SHELL"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 echo "$PACK"
-echo -e "$BWhite------------------------------"
+echo -e "$BWhite------------------------------$BWhite"
