@@ -35,8 +35,6 @@ echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 if [ -x $(command -v "pacman") ]; then
-  PACK=$"$(pacman -Qq | wc -l)"
+  PACK="$(pacman -Qq | wc -l)"
 elif [ -x $(command -v "apt") ]; then
-  PACK=$"$(dpkg-query -l | wc -l)"
-elif then
-  echo "FUCK YOU."
+  PACK="$(dpkg-query -l | wc -l)"
