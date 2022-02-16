@@ -21,6 +21,7 @@ SPACE=$(echo ${FREE_SPACE}/${TOTAL_SPACE})
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(glxinfo | grep "Device")
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
+PACK=$(sudo pacman -Qq --color never > arch-pacman && dpkg-query -l | less > debian-dpkg && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg && wc -l arch-pacman && wc -l debian-dpkg && wc -l gentoo-pkg)
 clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
@@ -39,10 +40,5 @@ echo "$RAM"
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "$SHELL"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
-sudo pacman -Qq --color never > arch-pacman
-dpkg-query -l | less > debian-dpkg
-ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg
-wc -l arch-pacman
-wc -l debian-dpkg
-wc -l gentoo-pkg
+echo "$PACK"
 echo -e "$BWhite------------------------------"
