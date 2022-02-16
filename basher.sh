@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-Color_Off='\033[0m'#Text-Reset
-Red='\033[0;31m'#-Red
-Green='\033[0;32m'#-Green
-Yellow='\033[0;33m'#-Yellow
-Blue='\033[0;34m'#-Blue
-Purple='\033[0;35m'#-Purple
-BRed='\033[1;31m'#-Red
-BGreen='\033[1;32m'#-Green
-BYellow='\033[1;33m'#-Yellow
-BBlue='\033[1;34m'#-Blue
-BPurple='\033[1;35m'#-Purple
-BWhite='\033[1;37m'#-White
+Color_Off='\033[0m' # Text-Reset
+Red='\033[0;31m' # Red
+Green='\033[0;32m' # Green
+Yellow='\033[0;33m' # Yellow
+Blue='\033[0;34m' # Blue
+Purple='\033[0;35m' # Purple
+BRed='\033[1;31m' # Red
+BGreen='\033[1;32m' # Green
+BYellow='\033[1;33m' # Yellow
+BBlue='\033[1;34m' # Blue
+BPurple='\033[1;35m' # Purple
+BWhite='\033[1;37m' # White
 OS=$(grep -Em2 'NAME=' < /etc/os-release)
 KERNEL=$(uname -r)
 FREE_SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]")
