@@ -11,7 +11,7 @@ BYellow='\033[1;33m' # Yellow
 BBlue='\033[1;34m' # Blue
 BPurple='\033[1;35m' # Purple
 BWhite='\033[1;37m' # White
-OS=$(grep -Em2 'NAME=' < /etc/os-release)
+OS=$(grep 'NAME=' /etc/os-release)
 KERNEL=$(uname -r)
 SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print $2}' | grep "^[0-9]")
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
