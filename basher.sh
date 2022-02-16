@@ -11,7 +11,7 @@ BYellow='\033[1;33m'      # Yellow
 BBlue='\033[1;34m'        # Blue
 BPurple='\033[1;35m'      # Purple
 BWhite='\033[1;37m'       # White
-OS=$(grep -m1 "NAME=" < /etc/os-release | cut -d '"' -f 2)
+OS=$(grep -Em2 'NAME=' < /etc/os-release | cut -d '"' -f 2)
 OS1=$(grep '^VERSION' /etc/os-release)
 OS2=$(grep -E '^(VERSION|NAME)=' /etc/os-release)
 KERNEL=$(uname -r)
