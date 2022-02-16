@@ -11,14 +11,13 @@ BYellow='\033[1;33m' # Yellow
 BBlue='\033[1;34m' # Blue
 BPurple='\033[1;35m' # Purple
 BWhite='\033[1;37m' # White
-OS=$(grep -Em2 'NAME=' < /etc/os-release)
+OS=$(grep -Em2 'NAME= ' < /etc/os-release)
 KERNEL=$(uname -r)
 SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print $2}' | grep "^[0-9]")
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(lspci | grep -Em2 'VGA')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
 PACK=$(exec 3>&2 && exec 2> /dev/null && pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
-clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
 echo -e "$BYellow------------KERNEL------------$Yellow"
