@@ -17,7 +17,7 @@ SPACE=$(df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print 
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
 GPU=$(lspci | grep -Em2 'VGA')
 RAM=$(egrep 'MemTotal|MemAvailable' /proc/meminfo)
-PACK=$(pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
+PACK=$(exec 3>&2 && exec 2> /dev/null && pacman -Qq --color never > arch-pacman.txt && dpkg-query -l | less > debian-dpkg.txt && ls -d /var/db/pkg/*/*| cut -f5- -d/ > gentoo-pkg.txt && wc -l *.txt)
 clear
 echo -e "$BRed------------OS VER------------$Red"
 echo "$OS"
