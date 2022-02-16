@@ -34,7 +34,7 @@ echo "$RAM"
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
-# Credit to ashtrath.
+# I was getting frustrated implementing this package counting.
 if [ -x $(command -v "pacman") ]; then
   PACK="$(pacman -Qq --color never | wc -l)"
 elif [ -x $(command -v "apt") ]; then
