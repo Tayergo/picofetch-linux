@@ -34,9 +34,12 @@ echo "$RAM"
 echo -e "$BYellow------------SHELL-------------$Yellow"
 echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
+# Credit to ashtrath.
 if [ -x $(command -v "pacman") ]; then
   PACK="$(pacman -Qq --color never | wc -l)"
 elif [ -x $(command -v "apt") ]; then
   PACK="$(dpkg-query -l | less | wc -l)"
+elif [ -x $(command -v "emerge") ]; then
+  PACK="$(ls -d /var/db/pkg/*/*| cut -f5- -d/ | wc -l)"
 fi
 echo "$PACK"
