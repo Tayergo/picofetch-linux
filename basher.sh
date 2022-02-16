@@ -38,5 +38,4 @@ if [ -x $(command -v "pacman") ]; then
   PACK=$"$(pacman -Qq | wc -l)"
 elif [ -x $(command -v "apt") ]; then
   PACK=$"$(dpkg-query -l | wc -l)"
-
-
+echo "Fucking hell"
