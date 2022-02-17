@@ -36,7 +36,7 @@ echo "${SHELL##*/}"
 echo -e "$BGreen-----------PACKAGES-----------$Green"
 # I was getting frustrated implementing this package counting.
 if [ -x $(command -v "pacman") ]; then
-  PACK="$(pacman -Qq --color never | wc -l)"
+  PACK="$(pacman -Qq | wc -l)"
 elif [ -x $(command -v "apt") ]; then
   PACK="$(dpkg-query -l | less | wc -l)"
 elif [ -x $(command -v "emerge") ]; then
