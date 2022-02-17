@@ -41,5 +41,7 @@ elif [ -x $(command -v "apt") ]; then
   PACK="$(dpkg-query -l | less | wc -l)"
 elif [ -x $(command -v "emerge") ]; then
   PACK="$(ls -d /var/db/pkg/*/*| cut -f5- -d/ | wc -l)"
+elif [ -x $(command -v "xbps-query") ]; then
+  PACK="$(xbps-query -l | wc -l)"
 fi
 echo "$PACK"
