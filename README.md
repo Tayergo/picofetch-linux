@@ -7,13 +7,17 @@ A bash script for linux, made to be small in file size, and to be as efficient a
 
 # Important info:
 
-*Compatible Distributions*
+# *Compatible Distributions*
 
-Debian/Ubuntu (and all of the derivatives)
+*If your distro is based on, or is one of these, it will be fully compatible.*
 
-Arch (and all of the derivatives)
+Debian/Ubuntu (Tested with Debian Unstable, & Linux Mint 20.3)
 
-Gentoo (and all of the derivatives)
+Arch (Tested with ArcoLinux)
+
+Gentoo 
+
+Void Linux 
 
 _________________________________________________
 
