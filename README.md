@@ -1,12 +1,6 @@
 # ᵖᶦᶜᵒfetch 
 A bash script for linux, made to be small in file size, and to be as efficient as possible, that fetches system info.
 
-
-
-# INSTALLATION!
-
-# Important info:
-
 # *Compatible Distributions*
 
 *If your distro is based on, or is one of these, it will be fully compatible.*
