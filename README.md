@@ -48,8 +48,11 @@ Then just run the .sh script, and it should display system info.
 # Other Info.
 
 Credit to
+
 All contributors who have and ever will contribute to this program.
+
 https://github.com/Dyzean because they didn't wanna actually go to this repo and do something ig. they just suggested shit on discord
 __________________________________________________________________
 Programs used for developing picofetch
+
 nano (text editor) mainly used for local coding/bug-fixing, which I then implement into the repo via the github file editor.
