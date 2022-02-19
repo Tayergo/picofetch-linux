@@ -8,10 +8,15 @@ A bash script for linux, made to be small in file size, and to be as efficient a
 # Important info:
 
 *Compatible Distributions*
+
 Debian/Ubuntu (and all of the derivatives)
+
 Arch (and all of the derivatives)
+
 Gentoo (and all of the derivatives)
+
 _________________________________________________
+
 Other distros may work, but expect issues, such as full file paths showing in some places.
 
 
