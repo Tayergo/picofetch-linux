@@ -1,14 +1,5 @@
 # ᵖᶦᶜᵒfetch 
-a under 2KB bash program that just fetches some system info :P
-(4kb if you account for the install and readme, and snak.txt)
-
-You can modify, edit, change the code however you want.
-
-You can do anything with it, anywhere.
-
-The only requirement is that if you fork the code and make it into your own script, or something, credit me as the original creator.
-
-(See CC-BY, that's basically equivalent to what I'm saying)
+A bash script for linux, made to be small in file size, and to be as efficient as possible, that fetches system info.
 
 
 
@@ -16,7 +7,12 @@ The only requirement is that if you fork the code and make it into your own scri
 
 # Important info:
 
-ignore releases unless you wanna see bug-fixes and stuff. Its really just to track development/milestones.
+*Compatible Distributions*
+Debian/Ubuntu (and all of the derivatives)
+Arch (and all of the derivatives)
+Gentoo (and all of the derivatives)
+_________________________________________________
+Other distros may work, but expect issues, such as full file paths showing in some places.
 
 
 ## optional programs ##
