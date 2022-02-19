@@ -11,12 +11,38 @@ The only requirement is that if you fork the code and make it into your own scri
 (See CC-BY, that's basically equivalent to what I'm saying)
 
 # Installation info
-See [Installation.md](Installation.md)
+Scroll down
 
-# Dependancies:
-bash
+# INSTALLATION!
+
+# Important info:
+
+ignore releases unless you wanna see bug-fixes and stuff. Its really just to track development/milestones.
+
+
+## optional programs ##
+viu 
+*Used to display a logo.*
+
+## Needed programs ##
 git
+*to clone the repo.*
 
-# Other
-see snak.txt for credits, compatibility info, etc
+bash
+*this is a bash script...*
 
+## Install Picofetch ##
+* run `git clone https://github.com/XeonBionic/picofetch.githttps://github.com/XeonBionic/picofetch.git`
+* run `cd picofetch"`
+* run `ls" to verify everything is there. you should see the installation and readme files, a shell script, and an image.`
+
+**You now have picofetch downloaded**
+
+## Run Picofetch ##
+First, set the script to be executable.
+
+`chmod +x fet.sh`
+
+Then just run the .sh script, and it should display system info.
+
+`./fet.sh`
