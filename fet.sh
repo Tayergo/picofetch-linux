@@ -20,8 +20,8 @@ echo -e "$BYellow------------KERNEL------------$Yellow"
 uname -r
 echo -e "$BWhite-------------DE/WM-------------$White"
 echo ${WM}
-echo -e "$BGreen----------FREE SPACE----------$Green"
-df -h / | awk '{print $3}' | grep "^[0-9]" && df -h /home | awk '{print $2}' | grep "^[0-9]"
+echo -e "$BGreen----------DISKS----------$Green"
+df -h --output=source,size,used,avail | grep --color=never -e '^/' -e Filesystem
 echo -e "$BBlue----------CPU MODEL-----------$Blue"
 echo "${CPU:13}"
 echo -e "$BPurple----------GPU MODEL-----------$Purple"
@@ -30,15 +30,3 @@ echo -e "$BRed-----------RAM INFO-----------$Red"
 egrep 'MemTotal|MemAvailable' /proc/meminfo
 echo -e "$BYellow------------SHELL-------------$Yellow"
 basename $SHELL
-echo -e "$BGreen-----------PACKAGES-----------$Green"
-# I was getting frustrated implementing this package counting.
-if [ -x $(command -v "pacman") ]; then
-  PACK="$(pacman -Qq | wc -l)"
-elif [ -x $(command -v "apt") ]; then
-  PACK="$(dpkg-query -l | less | wc -l)"
-elif [ -x $(command -v "emerge") ]; then
-  PACK="$(ls -d /var/db/pkg/*/*| cut -f5- -d/ | wc -l)"
-elif [ -x $(command -v "xbps-query") ]; then
-  PACK="$(xbps-query -l | wc -l)"
-fi
-echo "$PACK"
