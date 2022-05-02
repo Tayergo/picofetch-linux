@@ -13,7 +13,7 @@ BPurple='\033[1;35m'
 BWhite='\033[1;37m' # White
 WM=${WAYLAND_DISPLAY:-$(xprop -id "$(xprop -root _NET_SUPPORTING_WM_CHECK | cut -d' ' -f5)" _NET_WM_NAME | cut -d'"' -f2)}
 CPU=$(grep -m 1 'model name' /proc/cpuinfo)
-GPU=$(lspci | grep -Em2 'VGA')
+GPU=$(lspci | grep -Em2 'VGA' | cut -c 24-100)
 echo -e "$BRed------------OS VER------------$Red"
 grep -m1 -o '[^NAME=]' '/etc/os-release' | cut -d '"' -f 2 | tr -d '\012\015' && printf "\n"
 echo -e "$BYellow------------KERNEL------------$Yellow"
