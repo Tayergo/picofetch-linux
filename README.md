@@ -3,15 +3,7 @@ A bash script for linux, made to be small in file size, and to be as efficient a
 
 # *Compatible Distributions*
 
-*If your distro is based on, or is one of these, it will be fully compatible.*
-
-Debian/Ubuntu (Tested with Debian Unstable, & Linux Mint 20.3)
-
-Arch (Tested with ArcoLinux)
-
-Gentoo 
-
-Void Linux 
+Most distributions.
 
 _________________________________________________
 
@@ -53,6 +45,4 @@ All contributors who have and ever will contribute to this program.
 
 https://github.com/Dyzean because they didn't wanna actually go to this repo and do something ig. they just suggested shit on discord
 __________________________________________________________________
-Programs used for developing picofetch
 
-nano (text editor) mainly used for local coding/bug-fixing, which I then implement into the repo via the github file editor.
