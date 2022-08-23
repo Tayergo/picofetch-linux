@@ -1,6 +1,8 @@
 # ᵖᶦᶜᵒfetch 
 A bash script for linux, made to be small in file size, and to be as efficient as possible, that fetches system info.
 
+Currently below 1kb. Goal is under 2kb
+
 # *Compatible Distributions*
 
 Most distributions.
